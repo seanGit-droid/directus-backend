@@ -1,0 +1,263 @@
+{
+  "name": "braintrust",
+  "version": "3.27.0",
+  "description": "SDK for integrating Braintrust",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/braintrustdata/braintrust-sdk-javascript.git",
+    "directory": "js"
+  },
+  "homepage": "https://www.braintrust.dev/docs",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "sideEffects": true,
+  "browser": {
+    "./dist/index.js": "./dist/browser.js",
+    "./dist/index.d.ts": "./dist/browser.d.ts",
+    "./dist/index.mjs": "./dist/browser.mjs",
+    "./dist/index.d.mts": "./dist/browser.d.mts"
+  },
+  "bin": {
+    "braintrust": "./dist/cli.js",
+    "bt": "./bin/bt"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "edge-light": "./dist/edge-light.mjs",
+      "workerd": "./dist/workerd.mjs",
+      "node": {
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.js"
+      },
+      "browser": "./dist/browser.mjs",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "default": "./dist/index.mjs"
+    },
+    "./workerd": {
+      "import": "./dist/workerd.mjs",
+      "require": "./dist/workerd.js",
+      "default": "./dist/workerd.mjs"
+    },
+    "./edge-light": {
+      "import": "./dist/edge-light.mjs",
+      "require": "./dist/edge-light.js",
+      "default": "./dist/edge-light.mjs"
+    },
+    "./browser": {
+      "import": "./dist/browser.mjs",
+      "require": "./dist/browser.js",
+      "default": "./dist/browser.mjs"
+    },
+    "./apply-auto-instrumentation": {
+      "types": "./dist/apply-auto-instrumentation.d.ts",
+      "edge-light": "./dist/apply-auto-instrumentation.browser.mjs",
+      "workerd": "./dist/apply-auto-instrumentation.browser.mjs",
+      "node": {
+        "import": "./dist/apply-auto-instrumentation.mjs",
+        "require": "./dist/apply-auto-instrumentation.js"
+      },
+      "browser": "./dist/apply-auto-instrumentation.browser.mjs",
+      "import": "./dist/apply-auto-instrumentation.mjs",
+      "require": "./dist/apply-auto-instrumentation.js",
+      "default": "./dist/apply-auto-instrumentation.mjs"
+    },
+    "./vitest-evals-reporter": {
+      "types": "./dist/vitest-evals-reporter.d.ts",
+      "import": "./dist/vitest-evals-reporter.mjs",
+      "module": "./dist/vitest-evals-reporter.mjs",
+      "require": "./dist/vitest-evals-reporter.js"
+    },
+    "./node": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "module": "./dist/index.mjs",
+      "require": "./dist/index.js"
+    },
+    "./dev": {
+      "types": "./dev/dist/index.d.ts",
+      "import": "./dev/dist/index.mjs",
+      "module": "./dev/dist/index.mjs",
+      "require": "./dev/dist/index.js"
+    },
+    "./util": {
+      "types": "./util/dist/index.d.ts",
+      "import": "./util/dist/index.mjs",
+      "module": "./util/dist/index.mjs",
+      "require": "./util/dist/index.js"
+    },
+    "./instrumentation": {
+      "types": "./dist/instrumentation/index.d.ts",
+      "import": "./dist/instrumentation/index.mjs",
+      "module": "./dist/instrumentation/index.mjs",
+      "require": "./dist/instrumentation/index.js"
+    },
+    "./hook.mjs": "./dist/auto-instrumentations/hook.mjs",
+    "./vite": {
+      "types": "./dist/auto-instrumentations/bundler/vite.d.ts",
+      "import": "./dist/auto-instrumentations/bundler/vite.mjs",
+      "module": "./dist/auto-instrumentations/bundler/vite.mjs",
+      "require": "./dist/auto-instrumentations/bundler/vite.cjs"
+    },
+    "./webpack": {
+      "types": "./dist/auto-instrumentations/bundler/webpack.d.ts",
+      "import": "./dist/auto-instrumentations/bundler/webpack.mjs",
+      "module": "./dist/auto-instrumentations/bundler/webpack.mjs",
+      "require": "./dist/auto-instrumentations/bundler/webpack.cjs"
+    },
+    "./next": {
+      "types": "./dist/auto-instrumentations/bundler/next.d.ts",
+      "import": "./dist/auto-instrumentations/bundler/next.mjs",
+      "module": "./dist/auto-instrumentations/bundler/next.mjs",
+      "require": "./dist/auto-instrumentations/bundler/next.cjs"
+    },
+    "./webpack-loader": {
+      "types": "./dist/auto-instrumentations/bundler/webpack-loader.d.ts",
+      "require": "./dist/auto-instrumentations/bundler/webpack-loader.cjs"
+    },
+    "./esbuild": {
+      "types": "./dist/auto-instrumentations/bundler/esbuild.d.ts",
+      "import": "./dist/auto-instrumentations/bundler/esbuild.mjs",
+      "module": "./dist/auto-instrumentations/bundler/esbuild.mjs",
+      "require": "./dist/auto-instrumentations/bundler/esbuild.cjs"
+    },
+    "./rollup": {
+      "types": "./dist/auto-instrumentations/bundler/rollup.d.ts",
+      "import": "./dist/auto-instrumentations/bundler/rollup.mjs",
+      "module": "./dist/auto-instrumentations/bundler/rollup.mjs",
+      "require": "./dist/auto-instrumentations/bundler/rollup.cjs"
+    }
+  },
+  "files": [
+    "dist/**/*",
+    "dev/dist/**/*",
+    "util/dist/**/*",
+    "bin/bt",
+    "scripts/bt-helper.js",
+    "scripts/install.js",
+    "NOTICE",
+    "licenses/**/*"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.60.0",
+    "@nodelib/fs.walk": "^1.2.8",
+    "@types/argparse": "^2.0.14",
+    "@types/async": "^3.2.24",
+    "@types/cli-progress": "^3.11.5",
+    "@types/cors": "^2.8.17",
+    "@types/esquery": "^1.5.4",
+    "@types/express": "^5.0.0",
+    "@types/http-errors": "^2.0.4",
+    "@types/mustache": "^4.2.5",
+    "@types/node": "^20.10.5",
+    "@types/pluralize": "^0.0.30",
+    "@types/tar": "^6.1.13",
+    "@typescript-eslint/eslint-plugin": "^8.49.0",
+    "@typescript-eslint/parser": "^8.49.0",
+    "ai": "^6.0.0",
+    "async": "^3.2.5",
+    "cross-env": "^7.0.3",
+    "eslint-plugin-es-x": "9.7.0",
+    "eslint-plugin-n": "^18.2.1",
+    "eslint-plugin-node-import": "^1.0.5",
+    "openai": "6.25.0",
+    "rollup": "^4.60.3",
+    "tar": "^7.5.22",
+    "tinybench": "^4.0.1",
+    "ts-declaration-location": "^1.0.7",
+    "tsup": "^8.5.1",
+    "tsx": "^4.21.0",
+    "typedoc": "^0.25.13",
+    "typedoc-plugin-markdown": "^3.17.1",
+    "typescript": "5.4.4",
+    "vite": "^8.1.5",
+    "vite-tsconfig-paths": "^4.3.2",
+    "vitest": "4.1.5",
+    "webpack": "^5.106.2",
+    "zod": "^3.25.34"
+  },
+  "dependencies": {
+    "@next/env": "^14.2.3",
+    "@vercel/functions": "^1.0.2",
+    "acorn": "^8.16.0",
+    "acorn-import-attributes": "^1.9.5",
+    "ajv": "^8.20.0",
+    "argparse": "^2.0.1",
+    "astring": "^1.9.0",
+    "cjs-module-lexer": "^2.2.0",
+    "cli-progress": "^3.12.0",
+    "cli-table3": "^0.6.5",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "esbuild": "0.28.1",
+    "esquery": "^1.7.0",
+    "eventsource-parser": "^1.1.2",
+    "express": "^5.2.1",
+    "http-errors": "^2.0.0",
+    "meriyah": "^6.1.4",
+    "minimatch": "^10.2.5",
+    "module-details-from-path": "^1.0.4",
+    "mustache": "^4.2.0",
+    "pluralize": "^8.0.0",
+    "semifies": "^1.0.0",
+    "simple-git": "^3.36.0",
+    "source-map": "^0.7.4",
+    "termi-link": "^1.0.1",
+    "unplugin": "^2.3.5",
+    "uuid": "^11.1.1",
+    "zod-to-json-schema": "^3.25.0"
+  },
+  "peerDependencies": {
+    "zod": "^3.25.34 || ^4.0"
+  },
+  "optionalDependencies": {
+    "@braintrust/bt-darwin-arm64": "0.12.0",
+    "@braintrust/bt-darwin-x64": "0.12.0",
+    "@braintrust/bt-linux-arm64": "0.12.0",
+    "@braintrust/bt-linux-x64": "0.12.0",
+    "@braintrust/bt-linux-x64-musl": "0.12.0",
+    "@braintrust/bt-win32-arm64": "0.12.0",
+    "@braintrust/bt-win32-x64": "0.12.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/",
+    "provenance": true
+  },
+  "scripts": {
+    "postinstall": "node ./scripts/install.js",
+    "build": "cross-env NODE_OPTIONS=\"--max-old-space-size=8192\" tsup",
+    "check:typings": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json",
+    "watch": "tsup --watch",
+    "clean": "rm -r dist/* && rm -r dev/dist/* && rm -r util/dist/*",
+    "docs": "typedoc --options typedoc.json src/node/index.ts",
+    "test": "vitest run --exclude \"src/wrappers/**/*.test.ts\" --exclude \"src/otel/**/*.test.ts\" --exclude \"smoke/**/*.test.ts\" --exclude \"src/zod/**/*.test.ts\" --exclude \"tests/api-compatibility/**\"",
+    "test:core": "pnpm prune && pnpm test",
+    "test:checks": "pnpm run test:core && pnpm run test:vitest",
+    "test:all": "pnpm run test:checks",
+    "test:api-compat": "vitest run tests/api-compatibility/api-compatibility.test.ts",
+    "test:otel": "vitest run --dir src/otel",
+    "test:otel-no-deps": "vitest run src/otel/otel-no-deps.test.ts --reporter=verbose",
+    "test:ai-sdk-v1": "vitest run src/wrappers/ai-sdk-v1.test.ts",
+    "test:ai-sdk-v2": "vitest run src/wrappers/ai-sdk-v2.test.ts src/wrappers/ai-sdk-v1.test.ts",
+    "test:ai-sdk-v3": "vitest run src/wrappers/ai-sdk-v3.test.ts",
+    "test:zod-v3": "vitest run src/zod/zod-v3-serialization.test.ts",
+    "test:zod-v4": "vitest run src/zod/zod-v4-serialization.test.ts",
+    "test:mastra": "vitest run src/wrappers/mastra.test.ts",
+    "test:vitest": "pnpm --filter @braintrust/vitest-wrapper-tests test",
+    "test:output": "tsx scripts/test-output.ts --with-comparison --with-metrics --with-progress",
+    "bench": "tsx src/queue.bench.ts",
+    "lint": "eslint .",
+    "fix:lint": "eslint --fix .",
+    "playground": "tsx playground.ts",
+    "playground:auto": "mkdir -p .context && pnpm exec esbuild playground.ts --platform=node --format=esm --outfile=.context/playground.auto.mjs && node --import ./dist/auto-instrumentations/hook.mjs ./.context/playground.auto.mjs",
+    "playground:cli:push": "node dist/cli.js push playground.ts",
+    "playground:cli:eval": "node dist/cli.js eval playground.ts",
+    "yalc:publish": "yalc publish"
+  }
+}

@@ -1,0 +1,17 @@
+#!/bin/sh
+basedir=$(dirname "$(echo "$0" | sed -e 's,\\,/,g')")
+
+case `uname` in
+    *CYGWIN*) basedir=`cygpath -w "$basedir"`;;
+esac
+
+if [ -z "$NODE_PATH" ]; then
+  export NODE_PATH="/Users/olmo/sources/braintrustdata/braintrust/sdk/js/dist/node_modules:/Users/olmo/sources/braintrustdata/braintrust/sdk/js/node_modules:/Users/olmo/sources/braintrustdata/braintrust/sdk/node_modules:/Users/olmo/sources/braintrustdata/braintrust/node_modules:/Users/olmo/sources/braintrustdata/node_modules:/Users/olmo/sources/node_modules:/Users/olmo/node_modules:/Users/node_modules:/node_modules:/Users/olmo/sources/braintrustdata/braintrust/sdk/node_modules/.pnpm/node_modules"
+else
+  export NODE_PATH="/Users/olmo/sources/braintrustdata/braintrust/sdk/js/dist/node_modules:/Users/olmo/sources/braintrustdata/braintrust/sdk/js/node_modules:/Users/olmo/sources/braintrustdata/braintrust/sdk/node_modules:/Users/olmo/sources/braintrustdata/braintrust/node_modules:/Users/olmo/sources/braintrustdata/node_modules:/Users/olmo/sources/node_modules:/Users/olmo/node_modules:/Users/node_modules:/node_modules:/Users/olmo/sources/braintrustdata/braintrust/sdk/node_modules/.pnpm/node_modules:$NODE_PATH"
+fi
+if [ -x "$basedir/node" ]; then
+  exec "$basedir/node"  "$basedir/../../../../../js/dist/cli.js" "$@"
+else
+  exec node  "$basedir/../../../../../js/dist/cli.js" "$@"
+fi

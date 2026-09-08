@@ -1,0 +1,44 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import { ERRORS } from '../constants.js';
+import { isPathInsideDirectory } from '../path.js';
+/**
+ * FileConfigstore writes the `Upload` JSON metadata to disk next the uploaded file itself.
+ * It uses a queue which only processes one operation at a time to prevent unsafe concurrent access.
+ */
+export class FileKvStore {
+    directory;
+    constructor(path) {
+        this.directory = path;
+    }
+    async get(key) {
+        try {
+            const buffer = await fs.readFile(this.resolve(key), 'utf8');
+            return JSON.parse(buffer);
+        }
+        catch {
+            return undefined;
+        }
+    }
+    async set(key, value) {
+        await fs.writeFile(this.resolve(key), JSON.stringify(value));
+    }
+    async delete(key) {
+        await fs.rm(this.resolve(key));
+    }
+    async list() {
+        const files = await fs.readdir(this.directory);
+        const sorted = files.sort((a, b) => a.localeCompare(b));
+        const name = (file) => path.basename(file, '.json');
+        // To only return tus file IDs we check if the file has a corresponding JSON info file
+        return sorted.filter((file, idx) => idx < sorted.length - 1 && name(file) === name(sorted[idx + 1]));
+    }
+    resolve(key) {
+        const filePath = path.resolve(this.directory, `${key}.json`);
+        if (!isPathInsideDirectory(this.directory, filePath)) {
+            throw ERRORS.FILE_NOT_FOUND;
+        }
+        return filePath;
+    }
+}
+//# sourceMappingURL=FileKvStore.js.map

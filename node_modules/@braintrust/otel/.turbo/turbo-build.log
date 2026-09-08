@@ -1,0 +1,20 @@
+
+
+> @braintrust/otel@0.1.2 build /Users/olmo/sources/braintrustdata/braintrust/sdk/integrations/otel-js
+> tsup
+
+[34mCLI[39m Building entry: src/index.ts
+[34mCLI[39m Using tsconfig: tsconfig.json
+[34mCLI[39m tsup v8.5.1
+[34mCLI[39m Using tsup config: /Users/olmo/sources/braintrustdata/braintrust/sdk/integrations/otel-js/tsup.config.ts
+[34mCLI[39m Target: es2022
+[34mCJS[39m Build start
+[34mESM[39m Build start
+[32mCJS[39m [1mdist/index.js [22m[32m20.82 KB[39m
+[32mCJS[39m ⚡️ Build success in 22ms
+[32mESM[39m [1mdist/index.mjs [22m[32m19.06 KB[39m
+[32mESM[39m ⚡️ Build success in 24ms
+DTS Build start
+DTS ⚡️ Build success in 6607ms
+DTS dist/index.d.ts  9.39 KB
+DTS dist/index.d.mts 9.39 KB
